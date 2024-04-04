@@ -1,0 +1,90 @@
+[
+  {
+    "type": "url",
+    "title": "Innovative Web Design Trends",
+    "url": "https://www.webdesignerdepot.com"
+  },
+  {
+    "type": "pdf",
+    "title": "Understanding Cryptocurrency",
+    "url": "/path/to/understanding-cryptocurrency.pdf",
+    "uploadDate": "2023-02-15"
+  },
+  {
+    "type": "url",
+    "title": "Latest AI Research",
+    "url": "https://www.arxiv.org/ai"
+  },
+  {
+    "type": "pdf",
+    "title": "Guide to Modern Web Development",
+    "url": "/path/to/modern-web-development.pdf",
+    "uploadDate": "2023-03-05"
+  },
+  {
+    "type": "url",
+    "title": "Sustainable Farming Practices",
+    "url": "https://www.sustainablefarming.com"
+  },
+  {
+    "type": "pdf",
+    "title": "Beginner's Guide to Yoga",
+    "url": "/path/to/yoga-guide.pdf",
+    "uploadDate": "2023-01-20"
+  },
+  {
+    "type": "url",
+    "title": "Healthy Eating on a Budget",
+    "url": "https://www.budgetbytes.com/healthy-eating"
+  },
+  {
+    "type": "pdf",
+    "title": "The Future of Transportation",
+    "url": "/path/to/future-transportation.pdf",
+    "uploadDate": "2023-02-28"
+  },
+  {
+    "type": "url",
+    "title": "Improving Mental Health",
+    "url": "https://www.mentalhealth.org"
+  },
+  {
+    "type": "pdf",
+    "title": "Deep Dive into Machine Learning",
+    "url": "/path/to/machine-learning.pdf",
+    "uploadDate": "2023-04-10"
+  },
+  {
+    "type": "url",
+    "title": "Exploring Space: The Next Frontier",
+    "url": "https://www.spaceexploration.com"
+  },
+  {
+    "type": "pdf",
+    "title": "The Impact of Climate Change",
+    "url": "/path/to/climate-change-impact.pdf",
+    "uploadDate": "2023-03-15"
+  },
+  {
+    "type": "url",
+    "title": "Introduction to Quantum Computing",
+    "url": "https://www.quantum-computing.com"
+  },
+  {
+    "type": "pdf",
+    "title": "Mastering Photography: Tips and Techniques",
+    "url": "/path/to/mastering-photography.pdf",
+    "uploadDate": "2023-02-10"
+  },
+  {
+    "type": "url",
+    "title": "Revolutionizing Education with Technology",
+    "url": "https://www.edtechrevolution.com"
+  },
+  {
+    "type": "pdf",
+    "title": "History of the Internet",
+    "url": "/path/to/internet-history.pdf",
+    "uploadDate": "2023-01-30"
+  }
+]
