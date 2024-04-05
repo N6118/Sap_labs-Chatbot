@@ -11,11 +11,13 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from dotenv import load_dotenv
+from dotenv import load_dotenv, set_key
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from werkzeug.utils import secure_filename
+from flask import Flask, request, jsonify
+
 
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
@@ -315,6 +317,11 @@ def get_chat_history():
     # Convert chat history to a serializable format
     history = [{"content": message.content, "sender": type(message).__name__} for message in chat_history]
     return jsonify(history), 200
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

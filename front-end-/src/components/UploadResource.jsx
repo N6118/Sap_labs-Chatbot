@@ -12,17 +12,12 @@ const UploadResource = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-
-    // Log the current resourceType, URL, and file
-    console.log('Resource Type:', resourceType);
-    console.log('URL:', url);
-    console.log('File:', file);
+    setError('');
 
     if (resourceType === 'url') {
-    // Handle URL submission
-      console.log('Submitting URL:', url); // Additional log for URL submission
+      // Handle URL submission
       if (!url) {
-        alert("Please enter a URL.");
+        setError("Please enter a URL.");
         setLoading(false);
         return;
       }
@@ -32,46 +27,50 @@ const UploadResource = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ url: url }),
+        body: JSON.stringify({ url }),
       })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
       .then(data => {
-        console.log(data);
         setLoading(false);
-        // Handle response
+        alert('URL submitted successfully!');
+        navigate('/'); // Redirect or handle success
       })
       .catch((error) => {
-        console.error('Error:', error);
+        setError('Error submitting URL: ' + error.message);
         setLoading(false);
       });
     } else if (resourceType === 'pdf') {
       // Handle PDF upload
       if (!file) {
-        alert("Please upload a PDF file.");
+        setError("Please upload a PDF file.");
         setLoading(false);
         return;
       }
       const formData = new FormData();
       formData.append('file', file);
-      console.log('Uploading PDF:', file.name); // Additional log for file upload
       // Send file to the backend
       fetch('http://localhost:5000/upload_pdf', {
         method: 'POST',
         body: formData,
       })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
       .then(data => {
-        console.log(data);
         setLoading(false);
-        // Handle response
+        alert('PDF uploaded successfully!');
+        navigate('/'); // Redirect or handle success
       })
       .catch((error) => {
-        console.error('Error:', error);
+        setError('Error uploading PDF: ' + error.message);
         setLoading(false);
       });
     }
   };
-
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -125,6 +124,7 @@ const UploadResource = () => {
           {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
+      {error && <div className="text-center my-4 p-2 bg-red-600 rounded">{error}</div>}
     </div>
   );
 };

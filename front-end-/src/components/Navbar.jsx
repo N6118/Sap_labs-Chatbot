@@ -1,40 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 text-white p-4">
-      <div className="flex justify-between items-center max-w-6xl mx-auto">
-    
-        <div className="flex items-center space-x-4">
-          <div className="bg-gray-700 p-2 rounded-full"> 
-            <svg className="h-8 w-8 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M5 13l4 4L19 7"></path>
+    <nav className="bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <div className="flex items-center space-x-5">
+          <div className="text-green-500 p-2 rounded-full hover:bg-green-600 hover:text-white transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <span className="text-xl font-bold">SAPChatbot</span> 
+          <span className="text-2xl font-bold tracking-tight">SAPChatbot</span>
         </div>
 
-       
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-6 text-lg font-medium">
           <li>
-            <Link to="/" className="hover:text-gray-300 mr-8">Chatbot</Link>
+            <Link to="/" className="hover:text-green-400 transition-colors duration-300">Chatbot</Link>
           </li>
           <li>
-            <Link to="/knowledge-base" className="hover:text-gray-300 ml-8">Knowledge Base</Link>
+            <Link to="/upload" className="hover:text-green-400 transition-colors duration-300">Knowledge Base</Link>
           </li>
         </ul>
-
-      
-        <div className="flex items-center space-x-3">
-          <div className="bg-gray-700 p-2 rounded-full">
-            
-            <svg className="h-6 w-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M12 11c2.28 0 4-1.72 4-4s-1.72-4-4-4-4 1.72-4 4 1.72 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"/>
-            </svg>
-          </div>
-          <span className="hidden sm:block">Profile</span> 
-        </div>
       </div>
     </nav>
   );
