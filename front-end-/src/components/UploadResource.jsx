@@ -120,7 +120,7 @@ const UploadResource = () => {
 
         {error && <div className="text-lg text-red-500">{error}</div>}
 
-        <button type="submit" className={`w-full p-3 text-lg rounded font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors ${loading ? 'bg-blue-400' : 'bg-blue-500 hover:bg-blue-700'}`}>
+        <button type="submit" className={`w-full p-3 bg-green-500 hover:bg-green-600 transition-colors duration-300 text-lg rounded font-bold focus:outline-none focus:ring-2 focus:ring-green-600 transition-colors ${loading ? 'bg-green-500' : 'bg-blue-500 hover:bg-blue-700'}`}>
           {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>

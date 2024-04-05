@@ -66,7 +66,7 @@ const Chatbot = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-white">
+        <div className="flex flex-col h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-white px-16">
             <div className="flex-grow overflow-auto p-6">
                 {errorMessage && (
                     <div className="bg-red-500 text-center p-3 rounded mb-4">

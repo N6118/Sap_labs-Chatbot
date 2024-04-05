@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-md">
+    <nav className="bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-md fixed top-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <div className="flex items-center space-x-5">
           <div className="text-green-500 p-2 rounded-full hover:bg-green-600 hover:text-white transition-colors duration-300">
@@ -14,7 +14,7 @@ const Navbar = () => {
           <span className="text-2xl font-bold tracking-tight">SAPChatbot</span>
         </div>
 
-        <ul className="flex space-x-6 text-lg font-medium">
+        <ul className="flex space-x-14 text-lg font-medium px-2">
           <li>
             <Link to="/" className="hover:text-green-400 transition-colors duration-300">Chatbot</Link>
           </li>
