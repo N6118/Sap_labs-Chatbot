@@ -11,7 +11,7 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from dotenv import load_dotenv, set_key
+from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -21,6 +21,7 @@ from flask import Flask, request, jsonify
 
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
+print(openai_api_key)
 class Document:
     def __init__(self, page_content, metadata=None):
         self.page_content = page_content
@@ -67,6 +68,7 @@ def get_vectorstore_from_json(json_file):
     success = False
     vector_store = Chroma(collection_name='v_db',persist_directory='vector_store',embedding_function = OpenAIEmbeddings(openai_api_key=openai_api_key))
     while attempt < max_attempts and not success:
+            print(openai_api_key)
         
             vector_store.add_documents(
                 documents,
@@ -103,12 +105,12 @@ def get_vectorstore_from_pdfs(directory_path='uploaded_files'):
         text = ""
         for page in doc:
             text += page.get_text()
-        print(text)
+        #print(text)
         # Split the PDF text into manageable chunks
         chunks = text_splitter.split_text(text)
         # Convert each chunk into a Document and add to the documents list
         documents.extend([Document(chunk) for chunk in chunks])
-    print(chunks)
+    #print(chunks)
     print(f"Processing {len(pdf_files)} PDF files.")
     
    
@@ -119,7 +121,7 @@ def get_vectorstore_from_pdfs(directory_path='uploaded_files'):
     vector_store = Chroma(collection_name='v_db',persist_directory='vector_store',embedding_function = OpenAIEmbeddings(openai_api_key=openai_api_key))
     print("2")
     while attempt < max_attempts and not success:
-            
+            print(openai_api_key)
             # This time, we use 'add_documents' method of the Chroma vector store
             # to add new embeddings to an existing collection.
             vector_store.add_documents(
@@ -171,7 +173,7 @@ def get_conversational_rag_chain(retriever_chain):
 def get_response(user_input, vector_store, chat_history):
     retriever_chain = get_context_retriever_chain(vector_store)
     conversation_rag_chain = get_conversational_rag_chain(retriever_chain)
-    
+    print(openai_api_key)
     response = conversation_rag_chain.invoke({
         "chat_history": chat_history,
         "input": user_input
